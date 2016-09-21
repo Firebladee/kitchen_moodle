@@ -1,0 +1,62 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: puppet_apply
+  require_chef_for_busser: false
+  puppet_debug: false
+  puppet_verbose: false
+  manifests_path: manifests
+  manifest: site.pp
+#  hiera_config_path: hiera.yaml
+#  hiera_data_path: hieradata
+  modules_path: modules
+
+platforms:
+  - name: puppetlabs/centos-6.6-64-nocm
+    driver:
+      network:
+        - ["forwarded_port", {guest: 80, host: 8079}]
+  - name: puppetlabs/centos-7.2-64-nocm
+    driver:
+      network:
+        - ["forwarded_port", {guest: 80, host: 8080}]
+  - name: puppetlabs/debian-6.0.10-64-nocm
+    driver:
+      network:
+        - ["forwarded_port", {guest: 80, host: 8081}]
+  - name: puppetlabs/ubuntu-14.04-64-nocm
+    driver:
+      network:
+        - ["forwarded_port", {guest: 80, host: 8082}]
+  - name: puppetlabs/debian-7.8-64-nocm
+    driver:
+      network:
+        - ["forwarded_port", {guest: 80, host: 8083}]
+#  - name: puppetlabs/centos-5.11-64-nocm # This hangs in virtualbox.
+#    driver:
+#      network:
+#        - ["forwarded_port", {guest: 80, host: 8084}]
+  - name: puppetlabs/ubuntu-16.04-64-nocm
+    driver:
+      network:
+        - ["forwarded_port", {guest: 80, host: 8085}]
+  - name: puppetlabs/debian-8.2-64-nocm
+    driver:
+      network:
+        - ["forwarded_port", {guest: 80, host: 8086}]
+  - name: puppetlabs/ubuntu-12.04-64-nocm
+    driver:
+      network:
+        - ["forwarded_port", {guest: 80, host: 8087}]
+  - name: puppetlabs/centos-7.0-64-nocm
+    driver:
+      network:
+        - ["forwarded_port", {guest: 80, host: 8088}]
+
+suites:
+  - name: default
+
+verifier:
+  ruby_bindir: '/usr/bin'

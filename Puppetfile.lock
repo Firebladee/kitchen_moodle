@@ -42,6 +42,7 @@ DEPENDENCIES
   mayflower-php (>= 0)
   moodle (>= 0)
   puppetlabs-apache (>= 0)
+  puppetlabs-apt (>= 0)
   puppetlabs-mysql (>= 0)
   puppetlabs-ntp (>= 0)
   stahnma-epel (>= 0)
